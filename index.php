@@ -87,14 +87,22 @@ alert("^-^ OK");
 <form action="insert.php" name="form"  id="form" method="post"  onsubmit="return  postChk(this)">
 	<h6 class="explain"> 那些对母校、院系、亲人、或者Ta说不出口的絮语！</h6>
 	<!--<h6 class="explain"> <a href="http://www.qiyar.com/threeline/allshow.php">三行展示</a></h6>-->
+  <p class="middle"> &nbsp <select name="Theme">
+                            <option value="Theme" selected="selected">主题</option>
+                            <option value="Tsinghua" >母校</option>
+                            <option value="China">祖国</option>
+                            <option value="Relatives" >亲人</option>
+                            <option value="TA">TA</option>
+                            <option value="Voice">吐槽</option>
+                            </select></p>
 	<p class="middle"> &nbsp <input  type="text" name="First" value="第一行。。"/></p>
 	<p class="middle"> &nbsp <input  type="text" name="Second" value="第二行。。"/></p>
 	<p class="middle"> &nbsp <input  type="text" name="Third" value="第三行。。"/></p>
 	<p class="middle"> &nbsp <input  type="text" name="Name" value="您何许人也？"/></p>
+  <p class="middle"> &nbsp <input  type="text" name="Email" value="Email .."/></p>
+  <p class="middle"> &nbsp <input  type="text" name="Department" value="您的院系。。"/></p>
 	<p class="middle">  <input type="submit" name="submit" value="吟一首" /></p>
 </form>
-
-	<h6> &nbsp </h6>
 </div>
 <?php
 include("foot.php");

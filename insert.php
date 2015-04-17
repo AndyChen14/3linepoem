@@ -10,11 +10,11 @@ include("connect.php");
 mysql_select_db("a0209115716", $con);
 
 //judgement the data is blank or not
-if (($_POST[First]!=0) and ($_POST[Second]!=0) and ($_POST[Third]!=0)){
+if (($_POST[First]!=NULL) and ($_POST[Second]!=NULL) and ($_POST[Third]!=NULL)){
 
-$sql="INSERT INTO threeline (First, Second, Third,Name)
+$sql="INSERT INTO threeline (Theme, First, Second, Third,Name,Email,Department)
 VALUES
-('$_POST[First]','$_POST[Second]','$_POST[Third]','$_POST[Name]')";
+('$_POST[Theme]','$_POST[First]','$_POST[Second]','$_POST[Third]','$_POST[Name]','$_POST[Email]','$_POST[Department]')";
 
 if (!mysql_query($sql,$con))
   {
