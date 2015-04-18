@@ -11,6 +11,30 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script language="javascript" type="text/javascript">
 <!--
+var state1=0;
+function clearcontent1(x)
+{
+  if (state1==0){
+  x.value ="";
+  state1=1;
+  }
+}
+var state2=0;
+function clearcontent2(x)
+{
+  if (state2==0){
+  x.value ="";
+  state2=1;
+  }
+}
+var state3=0;
+function clearcontent3(x)
+{
+  if (state3==0){
+  x.value ="";
+  state3=1;
+  }
+}
 function postChk(theForm){
   
   if(theForm.First.value.replace(/^[\s\r\n]+|[\s\r\n]+$/,'')=='' ){
@@ -95,12 +119,12 @@ alert("^-^ OK");
                             <option value="TA">TA</option>
                             <option value="Voice">吐槽</option>
                             </select></p>
-	<p class="middle"> &nbsp <input  type="text" name="First" value="第一行。。"/></p>
-	<p class="middle"> &nbsp <input  type="text" name="Second" value="第二行。。"/></p>
-	<p class="middle"> &nbsp <input  type="text" name="Third" value="第三行。。"/></p>
-	<p class="middle"> &nbsp <input  type="text" name="Name" value="您何许人也？"/></p>
-  <p class="middle"> &nbsp <input  type="text" name="Email" value="Email .."/></p>
-  <p class="middle"> &nbsp <input  type="text" name="Department" value="您的院系。。"/></p>
+	<p class="middle"> &nbsp <input id="First" type="text" name="First" value="第一行。。" onfocus="clearcontent1(First)"/></p>
+	<p class="middle"> &nbsp <input id="Second"  type="text" name="Second" value="第二行。。" onfocus="clearcontent2(this)"/></p>
+	<p class="middle"> &nbsp <input id="Third"  type="text" name="Third" value="第三行。。" onfocus="clearcontent3(this)"/></p>
+	<p class="middle"> &nbsp <input id="Name"  type="text" name="Name" value="您何许人也？"/></p>
+  <p class="middle"> &nbsp <input id="Email"  type="text" name="Email" value="Email .." /></p>
+  <p class="middle"> &nbsp <input id="Department"  type="text" name="Department" value="您的院系。。"/></p>
 	<p class="middle">  <input type="submit" name="submit" value="吟一首" /></p>
 </form>
 </div>
