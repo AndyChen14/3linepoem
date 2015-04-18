@@ -8,17 +8,53 @@
 <meta name="format-detection" content="telephone=no">
 <title>暖暖的SHOW--三行情诗</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<!--add Like script -->
+<script type="text/javascript">
+$(function(){
+	$(".poem_img").click(function(){
+		var love = $(this);
+		var id = love.attr("rel");
+		//love.fadeOut(300);
+		$.ajax({
+			type:"POST",
+			url:"love.php",
+			data:"id="+id,
+			cache:false,
+			success:function(result){
+				//love.html(result);
+				//love.fadeIn(300);
+				    if(result){
+                    var position=result.indexOf("||");
+                    var warningMessage=result.substring(0,position);
+                    if(warningMessage=='success'){
+                         var successMessage=result.substring(position+2);
+                         //$("#poem_flash_"+id).html('&nbsp;');
+                         $("#poem_like_"+id).html(successMessage);
+                    }else{
+                         var errorMessage=result.substring(position+2);
+                         love.html(errorMessage);
+                         $("#poem_like_"+id).html(errorMessage)
+                    }
+				}
+			}
+		});
+		return false;
+	});
+});
+</script>
+
 </head>
 <body>
 
 <div id="head"><p>三行情诗</p></div>
 <?php 
-include("connect.php");
+include_once("connect.php");
 
 mysql_select_db("a0209115716");
 
 
-$perNumber=3; //每页显示的记录数
+$perNumber=15; //每页显示的记录数
 $page=@$_GET['page']?$_GET['page']:1; //获得当前的页面值
 //mysql_query("select * from threeline order by ID desc ");
 $count=mysql_query("select count(*) from threeline"); //获得记录总数
@@ -27,7 +63,7 @@ $totalNumber=$rs[0];
 $totalPage=ceil($totalNumber/$perNumber); //计算出总页数
 
 $startCount=($page-1)*$perNumber; //分页开始,根据此方法计算出开始的记录
-$result=mysql_query("select * from threeline limit $startCount,$perNumber" ); //根据前面的计算出开始的记录和记录数
+$result=mysql_query("select * from threeline order by ID desc limit $startCount,$perNumber" ); //根据前面的计算出开始的记录和记录数
 
 
 	while ($row=mysql_fetch_array($result)) {
@@ -39,10 +75,16 @@ $result=mysql_query("select * from threeline limit $startCount,$perNumber" ); //
 		echo "<p>" . $row['Second'] . "</p>";
 		echo "<p>" . $row['Third'] . "</p>";
 		echo "</div>";
-		echo "<div  class='writer'><p> @" . $row['Name'] . "</p></div>";//显示数据库的内容
+		echo '<div  class="poem_foot">';
+
+		echo '<div class="poem_flash" id="poem_flash_'.$row['ID'].'">';
+		echo '<img class="poem_img" id="poem_img_'.$row['ID'].'"src="img/like.png" rel="'.$row['ID'].'">'; 
+		echo '<span class="poem_span" id="poem_like_'.$row['ID'].'">'.$row['pLike'].'</span></div>';
+
+		echo '<div calss="writer"> @' . $row['Name'] . '</div></div>';//显示数据库的内容
 		echo "</div>"; 
 	}
-	echo "<div id='page_num' >";
+	echo "<div id='page_num'>";
 	//echo "----------------------------<br>";
 	if ($page != 1) { //页数不等于1
 ?>
