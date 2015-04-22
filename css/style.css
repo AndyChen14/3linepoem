@@ -64,12 +64,7 @@ font-weight:bold;
 
 	color:#999;
 }
-.writer{
-	float: right;
-	color: #666;
-	font-size:0.8em;
-	text-align: right;
-}
+
 .middle{
 	/*margin-left:25%;*/
 	text-align:center;
@@ -77,6 +72,10 @@ font-weight:bold;
 .explain{
 	text-align:center;
 	color:#999;
+}
+.explain a{
+	text-align:center;
+	color:red
 }
 /**************single poem*******/
 .single_poem {
@@ -108,8 +107,29 @@ font-weight:bold;
 	text-align:center;
 	font-family:"楷体", Times, TimesNR, 'New Century Schoolbook',Georgia, 'New York', serif;*/
 }
+.poem_foot{
+	float: right;
+	color: #666;
+	font-size:0.8em;
+	width: 100%;
+	text-align: right;
+}
+.poem_flash{
+	float: left;
+	color: #666;
+	font-size:0.8em;
+}
+.writer{
+	float: right;
+	color: #666;
+	font-size:0.8em;
+	text-align: right;
+}
 .bottom_0{
 	margin-bottom: 0;
+}
+.nondisplay{
+	display: none;
 }
 /**************page num**********/
 #page_num{
