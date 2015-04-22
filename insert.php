@@ -31,6 +31,8 @@ if (!mysql_query($sql,$con))
 	mysql_close($con);
 	$add = "show.php?ID=" . $row['ID'] ;   
 	header("Location:" . $add); 
+	//header("Location:allshow.php"); 
+
 } else {
 	echo "<p style='text-align:center; width:100%' ><br>Dear,the data is blank, please submit again!<br> ";
 	echo "<a href='index.php' text-align='center' width='100%'>返回</a> ";

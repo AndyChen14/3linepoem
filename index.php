@@ -105,7 +105,7 @@ alert("^-^ OK");
 </head>
 <body>
 
-<div id="head"><p>三行情诗</p></div>
+<div id="head"><p>三行情诗·清华</p></div>
 
 <div id="poem">
 <form action="insert.php" name="form"  id="form" method="post"  onsubmit="return  postChk(this)">
@@ -118,6 +118,7 @@ alert("^-^ OK");
                             <option value="Relatives" >亲人</option>
                             <option value="TA">TA</option>
                             <option value="Voice">吐槽</option>
+                            <option value="Other">其他</option>
                             </select></p>
 	<p class="middle"> &nbsp <input id="First" type="text" name="First" value="第一行。。" onfocus="clearcontent1(First)"/></p>
 	<p class="middle"> &nbsp <input id="Second"  type="text" name="Second" value="第二行。。" onfocus="clearcontent2(this)"/></p>
