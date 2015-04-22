@@ -19,7 +19,7 @@ else{
 	$row = mysql_fetch_array($result);
 	$love = $row['pLike'];
 
-	$expire=time()+60*60*24*30;
+	$expire=time()+60*60*24*2;
     setcookie("like"."_".$id, "like"."_".$id, $expire);
 
 	echo "success||".$love;

@@ -47,7 +47,7 @@ $(function(){
 </head>
 <body>
 
-<div id="head"><p>三行情诗</p></div>
+<div id="head"><p>三行情诗·清华</p></div>
 <?php 
 include_once("connect.php");
 
