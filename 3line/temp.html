@@ -1,0 +1,53 @@
+<script type="text/javascript">
+function addlike(x){
+        var id = $(x).attr("rel");
+        $(x).css("color","red");
+        var url="love.php";    
+        $.post(url, 
+        {  
+        data : "id="+id,  
+        }, 
+        success:function(result){
+                    if(result){
+                    var position=result.indexOf("||");
+                    var warningMessage=result.substring(0,position);
+                    if(warningMessage=='success'){
+                         var successMessage=result.substring(position+2);
+                         //$("#poem_flash_"+id).html('&nbsp;');
+                         $("#pLike_"+id).html(successMessage);
+                    }else{
+                         var errorMessage=result.substring(position+2);
+                         love.html(errorMessage);
+                         $("#pLike_"+id).html(errorMessage)
+                    }
+                }
+        });       
+    };  
+
+</script>
+function addlike(x){
+        var id = $(x).attr("rel");
+        $(x).css("color","red");
+        //love.fadeOut(300);
+        $.ajax({
+            type:"POST",
+            url:"love.php",
+            data:"id="+id,
+            cache:false,
+            success:function(result){
+                    if(result){
+                    var position=result.indexOf("||");
+                    var warningMessage=result.substring(0,position);
+                    if(warningMessage=='success'){
+                         var successMessage=result.substring(position+2);
+                         //$("#poem_flash_"+id).html('&nbsp;');
+                         $("#pLike_"+id).html(successMessage);
+                    }else{
+                         var errorMessage=result.substring(position+2);
+                         love.html(errorMessage);
+                         $("#pLike_"+id).html(errorMessage)
+                    }
+                }
+            }
+        });
+    }
